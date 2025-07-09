@@ -1,28 +1,27 @@
-// Select all links with hashes
-const links = document.querySelectorAll('a[href^="#"]');
-
-// Add click event listener to each link
-links.forEach(link => {
-    link.addEventListener('click', function(event) {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-
-        // Store the target element's ID
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        // Scroll to the target element smoothly
-        targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+ const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
     });
 
+// Select all anchor links that link to sections
+const links = document.querySelectorAll('a[href^="#"]');
 
-});
-const menuToggle = document.getElementsByClassName('mobile-menu-btn');
-const navLinks = document.getElementsByClassName('nav-links');
+// Smooth scroll + auto-close menu on mobile
+links.forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    // Smooth scroll to the section
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    // Close the mobile menu if open
+    navLinks.classList.remove('show');
+  });
 });

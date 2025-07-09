@@ -358,7 +358,11 @@
             .nav-links {
                 display: none;
             }
-            
+             .nav-links.active {
+                display: flex;
+                /* flex-direction: column; */
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -377,3 +381,4 @@
                 text-align: center;
             }
         }
+

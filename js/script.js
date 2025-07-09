@@ -17,4 +17,12 @@ links.forEach(link => {
             block: 'start'
         });
     });
+
+
+});
+const menuToggle = document.getElementsByClassName('mobile-menu-btn');
+const navLinks = document.getElementsByClassName('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
